@@ -26,8 +26,8 @@ public class Intro extends ApplicationAdapter {
   int[] coordonneesX;
   int longueurEffective;
   int hauteurEffective; 
-  // teste
-  
+  // dummy
+
 
   @Override
   public void create() {  
