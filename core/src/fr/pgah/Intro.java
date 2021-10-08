@@ -25,8 +25,9 @@ public class Intro extends ApplicationAdapter {
   int[] coordonneesY;
   int[] coordonneesX;
   int longueurEffective;
-  int hauteurEffective;
-
+  int hauteurEffective; 
+  // teste
+  
 
   @Override
   public void create() {  
@@ -42,7 +43,7 @@ public class Intro extends ApplicationAdapter {
     hauteurFenetre = Gdx.graphics.getHeight();
     largeurFenetre = Gdx.graphics.getWidth();
     hauteurImage = hauteurEffective;
-    
+
     
 
   }
