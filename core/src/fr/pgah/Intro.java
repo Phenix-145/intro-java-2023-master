@@ -5,11 +5,13 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
+import java.util.Random;
 
 public class Intro extends ApplicationAdapter {
 
   // Déclaration de toutes les variables du programme
-  final int NBSprite = 30;
+  final int NBSprite = 100;
+  int vitessemax = 50;
   SpriteBatch batch; // pour pouvoir dessiner à l'écran
   Texture[] imgs; // contient les images de chaque sprite
   int[] coordonneesX; // les coordonnées en X de chaque sprite
@@ -21,6 +23,7 @@ public class Intro extends ApplicationAdapter {
   int hauteurFenetre; // la hauteur de la fenêtre (unique, pas un tableau)
   int largeurFenetre; // la largeur de la fenêtre
   int[] vitesse;
+  Random generateurAleatoire;
 
   // Définition de la méthode create
   // C'est là qu'on initialise toutes les variables (on leur donne une valeur).
@@ -41,22 +44,20 @@ public class Intro extends ApplicationAdapter {
     hauteursImgs = new int[NBSprite];
     coordonneesY = new int[NBSprite];
     coordonneesX = new int[NBSprite];
-     // type objet => instanciation (new)
+     
 
-     // tableau = type objet aussi ; ici : 2 Textures
-
-    // Chaque élément du tableau est lui-même un objet (Texture)
-    // Il faut donc instancier une Texture pour chaque élément
+    vitessemax = vitessemax -1;
       
     for (int i = 0; i < NBSprite; i++) {
+      generateurAleatoire = new Random();
       imgs[i] = new Texture("bomb.png");
-      coordonneesX[i] = 0;
-      coordonneesY[i] = 0;
+      coordonneesX[i] = (int) (Math.random()*largeurFenetre);
+      coordonneesY[i] = (int) (Math.random()*hauteurFenetre);
       hauteursImgs[i] = imgs[i].getHeight();
       largeursImgs[i] = imgs[i].getWidth();
-      versLeHaut[i] = true; // au début, le 1er spite va monter
-      versLaDroite[i] = true;
-      vitesse[i] =4; 
+      versLeHaut[i] = generateurAleatoire.nextBoolean();
+      versLaDroite[i] = generateurAleatoire.nextBoolean();
+      vitesse[i] =(int) (Math.random()*vitessemax)+1; 
     }
       imgs[0] = new Texture("dar.png");
    
